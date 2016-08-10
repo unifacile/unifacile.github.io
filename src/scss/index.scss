@@ -357,7 +357,7 @@ strong {
                 max-height: 3em;
                 transition: all .3s ease-in;
                 &.nav-open {
-                    max-height: 30em;
+                    max-height: 20em;
                     h3::after {
                         opacity: 1;
                         transform: rotate(45deg);
