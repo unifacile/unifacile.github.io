@@ -2,7 +2,7 @@ const gulp = require('gulp'),
     del = require('del');
 
 const melody = require('melody-gulp')({
-    debug: true
+    debug: false
 });
 
 melody.env('standard', {
@@ -38,9 +38,18 @@ melody.compose("scripts", function (play) {
 melody.compose("images", function (play) {
     play
         .env('standard')
-        .asset('/img/*')
+        .asset('/img/*.png')
+        .asset('/img/*.jpg')
         .record(melody.envConfig('standard', 'publicPath') + '/img')
         .copy();
+});
+
+melody.compose("vector-sprite", function (play) {
+    play
+        .env('standard')
+        .asset('img/', 'svg')
+        .record(melody.envConfig('standard', 'publicPath') + '/img')
+        .vectorSprite();
 });
 
 melody.compose("fonts", function (play) {
@@ -51,6 +60,10 @@ melody.compose("fonts", function (play) {
         .copy();
 });
 
+melody.compose('watch', function () {
+    gulp.watch(melody.envConfig('standard', 'assetPath') + 'scss/**/*.scss', ['styles']);
+});
+
 gulp.task('clean', function () {
     del.sync(melody.envConfig('standard', 'publicPath') + '/css/*');
     del.sync(melody.envConfig('standard', 'publicPath') + '/js/*');
@@ -58,4 +71,4 @@ gulp.task('clean', function () {
     del.sync(melody.envConfig('standard', 'publicPath') + '/img/*');
 });
 
-melody.compose("build", ["clean", "styles", "scripts", "images", "fonts"]);
+melody.compose("build", ["clean", "vector-sprite", "styles", "scripts", "images", "fonts"]);

@@ -1,5 +1,159 @@
+@import "vars";
+@import "mixin/*.scss";
+@import "buttons";
+
 body {
-    a {
-        color: red;
+    font-family: 'Open Sans', sans-serif;
+}
+
+//******************************************//
+// PAGE HEADER
+//******************************************//
+.header {
+    $navigation-padding: (20px 15px 0 15px);
+
+    background: rgba(39,46,54,.6);
+    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
+
+    .container {
+        padding: nth($navigation-padding, 1) nth($navigation-padding, 2) nth($navigation-padding, 3) nth($navigation-padding, 4);
+        @include breakpoint(tablet) {
+            padding-bottom: 15px;
+        }
+        @include breakpoint(desktop) {
+            margin: 0 auto;
+        }
+    }
+
+    .logo {
+        display: block;
+        cursor: pointer;
+        float: left;
+        color: white;
+        font-size: 18px;
+
+        .icon {
+            width: 45px;
+            height: 30px;
+        }
+
+        .brand {
+            float: left;
+            margin-top: 3px;
+            margin-left: 12px;
+            margin-bottom: 15px;
+            @include breakpoint(tablet) {
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .login-mobile {
+        display: block;
+        float: right;
+    }
+
+    .navigation {
+        text-transform: uppercase;
+        text-align: center;
+        border-top: 1px solid rgba(255, 255, 255, .28);
+        padding: 15px 0;
+        margin-left: - nth($navigation-padding, 2);
+        margin-right: - nth($navigation-padding, 2);
+
+        a {
+            color: white;
+            &:not(.signup) {
+                margin-right: 20px;
+            }
+        }
+
+        .login-desktop {
+            display: none;
+        }
+    }
+
+    @include breakpoint(tablet) {
+        .navigation {
+            margin: 0;
+            border: 0;
+            padding: 0;
+            float: right;
+
+            .login-desktop {
+                display: inline-block;
+            }
+
+            a {
+                &:not(.login-desktop) {
+                    margin-right: 20px;
+                }
+            }
+        }
+
+        .login-mobile {
+            display: none;
+        }
     }
 }
+
+//******************************************//
+// HOME TOP SECTION
+//******************************************//
+.top-container {
+    position: relative;
+    overflow: hidden;
+    @include linear-gradient(137deg, #0058E4 0%, #0AB7F3 100%);
+
+    .top-title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 30px;
+        color: #FFFFFF;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        @include breakpoint(tablet) {
+            font-size: 36px;
+            margin-top: 60px;
+        }
+    }
+
+    .top-description {
+        text-align: center;
+        @include font-size(16, 1.4);
+        color: rgba(255,255,255,0.75);
+        max-width: 800px;
+        margin: 0 auto;
+        @include breakpoint(tablet) {
+            @include font-size(20);
+        }
+    }
+
+    .hero-image {
+        position: relative;
+        left: 50%;
+        display: block;
+        margin-top: 40px;
+        margin-left: -255px;
+        width: 510px;
+        height: auto;
+
+        @include breakpoint(tablet) {
+            width: 730px;
+            margin-left: -365px;
+        }
+        @include breakpoint(desktop) {
+            width: 830px;
+            margin-left: -415px;
+            margin-top: 60px;
+        }
+    }
+}
+
+//******************************************//
+// HOME FIRST SECTION
+//******************************************//
+
+
+
+
