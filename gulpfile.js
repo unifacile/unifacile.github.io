@@ -2,7 +2,7 @@ const gulp = require('gulp'),
     del = require('del');
 
 const melody = require('melody-gulp')({
-    debug: false
+    debug: true
 });
 
 melody.env('standard', {
@@ -19,7 +19,7 @@ melody.compose("styles", function (play) {
     play
         .env('standard')
         .bower('/bootstrap/dist/css/bootstrap.min.css')
-        .bower('/fontawesome/css/font-awesome.min.css')
+        .bower('/font-awesome/css/font-awesome.min.css')
         .asset('/scss', 'scss')
         .record('style.css')
         .style()

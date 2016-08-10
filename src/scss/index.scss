@@ -6,14 +6,20 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+p {
+    @include font-size(15, 1.4);
+    color: $paragraph-default-text-color;
+
+}
+
 //******************************************//
 // PAGE HEADER
 //******************************************//
 .header {
     $navigation-padding: (20px 15px 0 15px);
 
-    background: rgba(39,46,54,.6);
-    box-shadow: 0 3px 6px 0 rgba(0,0,0,0.16);
+    background: rgba(39, 46, 54, .6);
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.16);
 
     .container {
         padding: nth($navigation-padding, 1) nth($navigation-padding, 2) nth($navigation-padding, 3) nth($navigation-padding, 4);
@@ -56,7 +62,7 @@ body {
     .navigation {
         text-transform: uppercase;
         text-align: center;
-        border-top: 1px solid rgba(255, 255, 255, .28);
+        border-top: 1px solid rgba(255, 255, 255, .12);
         padding: 15px 0;
         margin-left: - nth($navigation-padding, 2);
         margin-right: - nth($navigation-padding, 2);
@@ -107,7 +113,7 @@ body {
 
     .top-title {
         text-align: center;
-        font-weight: bold;
+        font-weight: 600;
         font-size: 30px;
         color: #FFFFFF;
         margin-top: 30px;
@@ -121,7 +127,7 @@ body {
     .top-description {
         text-align: center;
         @include font-size(16, 1.4);
-        color: rgba(255,255,255,0.75);
+        color: rgba(255, 255, 255, 0.75);
         max-width: 800px;
         margin: 0 auto;
         @include breakpoint(tablet) {
@@ -151,9 +157,264 @@ body {
 }
 
 //******************************************//
-// HOME FIRST SECTION
+// HOME SECTIONS
 //******************************************//
+.homepage-section {
+    padding-top: 70px;
+    padding-bottom: 60px;
 
+    .section-title {
+        font-weight: bold;
+        text-align: center;
+        font-size: 30px;
+        color: $title-black-text-color;
+    }
 
+    .section-description {
+        text-align: center;
+        @include font-size(16, 1.5);
+        margin: 10px auto 0 auto;
+        max-width: 560px;
+        color: $paragraph-default-text-color;
+        @include breakpoint(tablet) {
+            @include font-size(19, 1.5);
+        }
+    }
+    .step-container {
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 15px;
+
+        .step {
+            margin-bottom: 1rem;
+            padding: 0 0 0 30px;
+            position: relative;
+            width: 100%;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 22px;
+                height: 22px;
+                border-radius: 50%;
+                background: #E9EDF2;
+                text-align: center;
+                line-height: 20px;
+                font-size: 11px;
+                font-weight: 600;
+            }
+        }
+        @for $i from 1 through 30 {
+            .step:nth-child(#{$i})::before {
+                content: '#{$i}';
+
+            }
+        }
+    }
+
+    .points {
+        margin-top: 20px;
+        @include clearfix;
+
+        .point {
+            margin-bottom: 20px;
+            float: left;
+            @include breakpoint(tablet) {
+                width: 28%;
+                margin-right: 8%;
+                &:last-child {
+                    margin-right: 0;
+                }
+            }
+
+            h3 {
+                font-weight: 600;
+                font-size: 21px;
+                margin-bottom: 20px;
+
+            }
+        }
+    }
+}
+
+.homepage-section.who-we-are {
+    .feature {
+        padding: 20px 0;
+        margin-top: 30px;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: calc(100% - 4rem);
+            height: 1px;
+            background: $color-border;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 0;
+            @include breakpoint(desktop) {
+                height: 0;
+            }
+        }
+
+        .feature-header {
+            margin-bottom: 30px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+
+            h3 {
+                color: $title-blue-text-color;
+                @include font-size(18);
+                text-align: center;
+                letter-spacing: -0.5px;
+                margin: 0;
+                @include breakpoint(desktop) {
+                    text-align: left;
+                }
+            }
+            p {
+                @include font-size(26);
+                font-weight: 600;
+                margin-top: 4px;
+                color: $title-black-text-color;
+                text-align: center;
+                @include breakpoint(desktop) {
+                    text-align: left;
+                }
+            }
+        }
+
+        p {
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+}
+
+.homepage-section.technologies {
+    @include linear-gradient(-90deg, #FF4C5A 0%, #FA5240 100%);
+
+    .section-title, .section-description {
+        color: #fff;
+    }
+
+    .point {
+        p {
+            color: #fff;
+        }
+        color: #fff;
+    }
+}
+
+//******************************************//
+// PAGE FOOTER
+//******************************************//
+.footer {
+    padding: 30px 0;
+    background-color: $footer-dark-background;
+
+    .logo {
+        width: 141px;
+        height: 35px;
+    }
+
+    .footer-menu {
+        margin-top: 15px;
+        background-color: #3f4750;
+        border-radius: .125em;
+        box-shadow: 0 0.125em 0.45em 0 rgba(0, 0, 0, 0.12);
+        @include breakpoint(tablet) {
+            margin-top: 0;
+        }
+        @include breakpoint(desktop) {
+            background: none;
+            border-radius: 0;
+            box-shadow: none;
+        }
+
+        .footer-nav {
+            padding: 0;
+            list-style-type: none;
+            @include breakpoint(desktop) {
+                display: flex;
+                flex-wrap: nowrap;
+            }
+
+            .footer-nav-toogle {
+                overflow: hidden;
+                max-height: 3em;
+                transition: all .3s ease-in;
+                &.nav-open {
+                    max-height: 30em;
+                    h3::after {
+                        opacity: 1;
+                        transform: rotate(45deg);
+                    }
+                }
+
+                @include breakpoint(desktop) {
+                    flex-grow: 1;
+                    max-height: 30em;
+                    h3::after {
+                        content: '';
+                    }
+                }
+            }
+
+            h3 {
+                @include font-size(14, 3);
+                color: $footer-title-color;
+                position: relative;
+                cursor: pointer;
+                padding: 0 1.5em;
+                text-transform: uppercase;
+                margin: 0;
+
+                &:after {
+                    content: "+";
+                    position: absolute;
+                    right: .75em;
+                    top: 0;
+                    font-size: 1.75em;
+                    font-weight: 400;
+                    opacity: .3;
+                    color: $footer-title-color;
+                    transition: opacity .3s ease, transform .3s ease;
+                }
+            }
+
+            .footer-nav-list {
+                list-style-type: none;
+                @include font-size(15, 2);
+                padding-bottom: 10px;
+                li a {
+                    color: $footer-link-color;
+                }
+            }
+        }
+    }
+
+    .copyright {
+        margin: 20px 0;
+        color: $footer-link-color;
+    }
+
+    .social {
+        font-size: 24px;
+        a {
+            margin-right: 15px;
+            color: #5C636B;
+        }
+        @include breakpoint(desktop) {
+            font-size: 30px;
+        }
+    }
+
+}
 
 
