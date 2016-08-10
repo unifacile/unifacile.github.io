@@ -1,0 +1,22 @@
+{
+  "name": "unifacile.github.io",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "toioski <toioski@hotmail.it>",
+    "mariselli <mattia.mariselli@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/unifacile/unifacile.github.io",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "^3.3.7",
+    "font-awesome": "fontawesome#^4.6.3"
+  }
+}

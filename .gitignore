@@ -1,3 +1,5 @@
 .idea
-design
 /node_modules
+/bower_components
+/css
+/dist

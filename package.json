@@ -1,0 +1,22 @@
+{
+  "name": "unifacile.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unifacile/unifacile.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unifacile/unifacile.github.io/issues"
+  },
+  "homepage": "https://github.com/unifacile/unifacile.github.io#readme",
+  "devDependencies": {
+    "melody-gulp": "^1.2.4"
+  }
+}
