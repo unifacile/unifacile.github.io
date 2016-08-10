@@ -9,6 +9,10 @@ body {
 p {
     @include font-size(15, 1.4);
     color: $paragraph-default-text-color;
+}
+
+strong {
+    font-weight: 600;
 
 }
 
@@ -241,6 +245,9 @@ p {
 }
 
 .homepage-section.who-we-are {
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.32);
+    position: relative;
+
     .feature {
         padding: 20px 0;
         margin-top: 30px;
